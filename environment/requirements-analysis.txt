@@ -1,0 +1,7 @@
+-r requirements-core.txt
+rdkit==2025.3.6
+pandas==2.3.3
+plotly==6.3.1
+streamlit==1.50.0
+py3Dmol==2.5.3
+pytest==8.4.2

@@ -1,0 +1,4 @@
+-r requirements-analysis.txt
+snakemake==9.13.4
+snakemake-interface-common==1.21.0
+packaging==25.0
