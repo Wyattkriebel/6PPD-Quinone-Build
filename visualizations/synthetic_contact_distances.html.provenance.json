@@ -1,0 +1,10 @@
+{
+  "source_metrics": "/workspace/scratch/9f29d2020edc/6ppdq-binder-design/results/test_fixtures/analysis/metrics.json",
+  "source_metrics_sha256": "e13b644112639ca76bfce896a4bfabf262f411d5adee85827dd942be022d37db",
+  "source_structure": "/workspace/scratch/9f29d2020edc/6ppdq-binder-design/tests/fixtures/synthetic_complex.pdb",
+  "parameters": {
+    "contact_cutoff_A": 4.5,
+    "vdw_overlap_cutoff_A": 0.8
+  },
+  "evidence_label": "SYNTHETIC SOFTWARE FIXTURE \u2014 not a binder"
+}
