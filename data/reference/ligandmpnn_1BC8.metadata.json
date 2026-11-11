@@ -1,0 +1,30 @@
+{
+  "source_url": "https://github.com/dauparas/LigandMPNN/blob/26ec57ac976ade5379920dbd43c7f97a91cf82de/inputs/1BC8.pdb",
+  "commit": "26ec57ac976ade5379920dbd43c7f97a91cf82de",
+  "source_sha256": "d3e844d818f24e8a1b6a39f7d97816306f0b69433ec8b9ea2cb6af6ba08e1284",
+  "license_file": "configs/reference_examples/LIGANDMPNN_LICENSE",
+  "source_type": "official_repository_input",
+  "protein_CA_count": 93,
+  "protein_chain": "C",
+  "nonwater_heteroatoms": [
+    {
+      "element": "Zn",
+      "chain": "B",
+      "residue": "2"
+    },
+    {
+      "element": "Zn",
+      "chain": "C",
+      "residue": "94"
+    }
+  ],
+  "limitation": "DNA/metal-context functionality control; not organic ligand or generated-backbone validation. DNA is recorded as ATOM, so HETATM counts alone undercount context.",
+  "nonprotein_nonwater_context_heavy_atoms": 406,
+  "context_residue_names": [
+    "DA",
+    "DC",
+    "DG",
+    "DT",
+    "ZN"
+  ]
+}

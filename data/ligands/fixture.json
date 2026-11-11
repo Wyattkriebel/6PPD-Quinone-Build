@@ -1,0 +1,1 @@
+{"purpose":"test_fixture","records":[{"ligand_id":"ethanol_fixture","smiles":"CCO","expected_formula":"C2H6O","source_url":"synthetic software fixture, not experimental data"}]}

@@ -1,0 +1,12 @@
+{
+  "purpose": "phase2",
+  "status": "identity_source_verified_conformers_not_generated",
+  "retrieval_date": "2026-11-09",
+  "parent_pubchem_cid": 154926030,
+  "cas": "2754428-18-5",
+  "connectivity_source": "https://precision.fda.gov/ginas/app/ui/substances/a27b9da6-3539-449e-ba35-9db6d157d7d6",
+  "records": [
+    {"ligand_id":"6ppdq_R_neutral", "smiles":"C[C@H](CC(C)C)NC1=CC(=O)C(=CC1=O)NC2=CC=CC=C2", "expected_formula":"C18H22N2O2", "expected_inchikey":"UBMGKRIXKUIXFQ-CYBMUJFWSA-N", "source_url":"https://pubchem.ncbi.nlm.nih.gov/compound/172674892", "state_probability":"unknown", "state_rationale":"Neutral quinone database representation; not a validated pH population."},
+    {"ligand_id":"6ppdq_S_neutral", "smiles":"C[C@@H](CC(C)C)NC1=CC(=O)C(=CC1=O)NC2=CC=CC=C2", "expected_formula":"C18H22N2O2", "expected_inchikey":"UBMGKRIXKUIXFQ-ZDUSSCGKSA-N", "source_url":"https://pubchem.ncbi.nlm.nih.gov/compound/172674891", "state_probability":"unknown", "state_rationale":"Neutral quinone database representation; not a validated pH population."}
+  ]
+}
