@@ -1,0 +1,39 @@
+schema_version: 1
+purpose: test_fixture
+seed: 42
+resources:
+  cpu_threads: 2
+  minimum_free_disk_gb: 0.1
+  timeout_seconds: 120
+  cloud_spend_cap_usd: 0
+stages:
+- id: analyze
+  argv:
+  - '{python}'
+  - '{root}/scripts/analysis/metrics.py'
+  - '{root}/tests/fixtures/synthetic_complex.pdb'
+  - --ligand
+  - LIG
+  - --output
+  - '{output_dir}/metrics.json'
+  inputs:
+  - scripts/analysis/metrics.py
+  - tests/fixtures/synthetic_complex.pdb
+  outputs:
+  - metrics.json
+- id: report
+  depends_on:
+  - analyze
+  argv:
+  - '{python}'
+  - '{root}/scripts/analysis/report.py'
+  - --table
+  - '{root}/results/candidate_tables/candidates.csv'
+  - --output
+  - '{output_dir}/report.html'
+  inputs:
+  - scripts/analysis/report.py
+  - results/candidate_tables/candidates.csv
+  - '{run_dir}/analyze/metrics.json'
+  outputs:
+  - report.html

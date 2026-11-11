@@ -1,0 +1,22 @@
+{
+  "original_rfdiffusion": {
+    "name": "Base_ckpt.pt",
+    "url": "http://files.ipd.uw.edu/pub/RFdiffusion/6f5902ac237024bdd0c176cb93063dc4/Base_ckpt.pt",
+    "source": "https://github.com/RosettaCommons/RFdiffusion/blob/86507b6538f51fce57b5a72477165f03999ed7ae/README.md",
+    "sha256": null,
+    "downloaded": false,
+    "note": "Official URL uses HTTP; try HTTPS first. Record downloaded digest; do not mistake URL token for SHA256."
+  },
+  "rfd3": {
+    "installer_argv": [
+      "foundry",
+      "install",
+      "rfd3",
+      "--checkpoint-dir",
+      "external/checkpoints"
+    ],
+    "sha256": null,
+    "downloaded": false,
+    "note": "Record actual checkpoint identity from pinned registry, filename and SHA256 before execution."
+  }
+}

@@ -1,0 +1,8 @@
+# Informational deployment profile. Copy resources into your experiment config.
+# Hardware is user-reported until environment/audit_wsl.sh is run on WSL.
+cpu_threads: 2
+cloud_spend_cap_usd: 0
+rfd1_environment: external/envs/rfd1
+rfd3_environment: external/envs/rfd3
+recommended_local: [ligand_preparation, metrics, report, dashboard]
+gpu_model_inference: unverified

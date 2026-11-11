@@ -1,0 +1,125 @@
+schema_version: 1
+purpose: reproduction
+seed: 111
+resources:
+  cpu_threads: 2
+  minimum_free_disk_gb: 1
+  timeout_seconds: 600
+  cloud_spend_cap_usd: 0
+stages:
+- id: sequence_design
+  argv:
+  - '{root}/external/envs/ligandmpnn/bin/python'
+  - '{root}/scripts/sequence_design/run_ligandmpnn.py'
+  - --repo
+  - '{root}/external/LigandMPNN'
+  - --checkpoint
+  - '{root}/external/LigandMPNN/model_params/ligandmpnn_v_32_010_25.pt'
+  - --input
+  - '{root}/data/reference/ligandmpnn_1BC8.pdb'
+  - --output-dir
+  - '{output_dir}'
+  - --seed
+  - '{seed}'
+  - --count
+  - '2'
+  - --temperature
+  - '0.1'
+  inputs:
+  - scripts/sequence_design/run_ligandmpnn.py
+  - data/reference/ligandmpnn_1BC8.pdb
+  - external/LigandMPNN/model_params/ligandmpnn_v_32_010_25.pt
+  - external/LigandMPNN/data_utils.py
+  - external/LigandMPNN/model_utils.py
+  - external/LigandMPNN/openfold/__init__.py
+  - external/LigandMPNN/openfold/config.py
+  - external/LigandMPNN/openfold/data/__init__.py
+  - external/LigandMPNN/openfold/data/data_modules.py
+  - external/LigandMPNN/openfold/data/data_pipeline.py
+  - external/LigandMPNN/openfold/data/data_transforms.py
+  - external/LigandMPNN/openfold/data/errors.py
+  - external/LigandMPNN/openfold/data/feature_pipeline.py
+  - external/LigandMPNN/openfold/data/input_pipeline.py
+  - external/LigandMPNN/openfold/data/mmcif_parsing.py
+  - external/LigandMPNN/openfold/data/parsers.py
+  - external/LigandMPNN/openfold/data/templates.py
+  - external/LigandMPNN/openfold/data/tools/__init__.py
+  - external/LigandMPNN/openfold/data/tools/hhblits.py
+  - external/LigandMPNN/openfold/data/tools/hhsearch.py
+  - external/LigandMPNN/openfold/data/tools/jackhmmer.py
+  - external/LigandMPNN/openfold/data/tools/kalign.py
+  - external/LigandMPNN/openfold/data/tools/utils.py
+  - external/LigandMPNN/openfold/np/__init__.py
+  - external/LigandMPNN/openfold/np/protein.py
+  - external/LigandMPNN/openfold/np/relax/__init__.py
+  - external/LigandMPNN/openfold/np/relax/amber_minimize.py
+  - external/LigandMPNN/openfold/np/relax/cleanup.py
+  - external/LigandMPNN/openfold/np/relax/relax.py
+  - external/LigandMPNN/openfold/np/relax/utils.py
+  - external/LigandMPNN/openfold/np/residue_constants.py
+  - external/LigandMPNN/openfold/resources/__init__.py
+  - external/LigandMPNN/openfold/utils/feats.py
+  - external/LigandMPNN/openfold/utils/loss.py
+  - external/LigandMPNN/openfold/utils/rigid_utils.py
+  - external/LigandMPNN/openfold/utils/tensor_utils.py
+  - external/LigandMPNN/run.py
+  - external/LigandMPNN/sc_utils.py
+  - external/LigandMPNN/score.py
+  outputs:
+  - seqs/ligandmpnn_1BC8.fa
+  - backbones/ligandmpnn_1BC8_1.pdb
+  - backbones/ligandmpnn_1BC8_2.pdb
+  - stats/ligandmpnn_1BC8.pt
+  - adapter_provenance.json
+- id: validate_sequence_1
+  depends_on:
+  - sequence_design
+  argv:
+  - '{root}/external/envs/ligandmpnn/bin/python'
+  - '{root}/scripts/sequence_design/validate_output.py'
+  - --reference
+  - '{root}/data/reference/ligandmpnn_1BC8.pdb'
+  - --designed
+  - '{run_dir}/sequence_design/backbones/ligandmpnn_1BC8_1.pdb'
+  - --fasta
+  - '{run_dir}/sequence_design/seqs/ligandmpnn_1BC8.fa'
+  - --design-id
+  - '1'
+  - --output
+  - '{output_dir}/validation.json'
+  - --stats
+  - '{run_dir}/sequence_design/stats/ligandmpnn_1BC8.pt'
+  inputs:
+  - scripts/sequence_design/validate_output.py
+  - data/reference/ligandmpnn_1BC8.pdb
+  - '{run_dir}/sequence_design/backbones/ligandmpnn_1BC8_1.pdb'
+  - '{run_dir}/sequence_design/seqs/ligandmpnn_1BC8.fa'
+  - '{run_dir}/sequence_design/stats/ligandmpnn_1BC8.pt'
+  outputs:
+  - validation.json
+- id: validate_sequence_2
+  depends_on:
+  - sequence_design
+  argv:
+  - '{root}/external/envs/ligandmpnn/bin/python'
+  - '{root}/scripts/sequence_design/validate_output.py'
+  - --reference
+  - '{root}/data/reference/ligandmpnn_1BC8.pdb'
+  - --designed
+  - '{run_dir}/sequence_design/backbones/ligandmpnn_1BC8_2.pdb'
+  - --fasta
+  - '{run_dir}/sequence_design/seqs/ligandmpnn_1BC8.fa'
+  - --design-id
+  - '2'
+  - --output
+  - '{output_dir}/validation.json'
+  - --stats
+  - '{run_dir}/sequence_design/stats/ligandmpnn_1BC8.pt'
+  inputs:
+  - scripts/sequence_design/validate_output.py
+  - data/reference/ligandmpnn_1BC8.pdb
+  - '{run_dir}/sequence_design/backbones/ligandmpnn_1BC8_2.pdb'
+  - '{run_dir}/sequence_design/seqs/ligandmpnn_1BC8.fa'
+  - '{run_dir}/sequence_design/stats/ligandmpnn_1BC8.pt'
+  outputs:
+  - validation.json

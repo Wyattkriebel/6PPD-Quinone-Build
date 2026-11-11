@@ -1,0 +1,14 @@
+# First official original RFdiffusion functionality test; does not pass Phase I alone.
+schema_version: 1
+purpose: reproduction
+seed: 0
+resources:
+  cpu_threads: 2
+  minimum_free_disk_gb: 10
+  timeout_seconds: 7200
+  cloud_spend_cap_usd: 0
+stages:
+  - id: original_rfdiffusion
+    argv: ['{root}/external/envs/rfd1/bin/python', '{root}/external/RFdiffusion/scripts/run_inference.py', 'contigmap.contigs=[150-150]', 'inference.output_prefix={output_dir}/design', 'inference.num_designs=1', 'inference.deterministic=True', 'inference.design_startnum=0', 'inference.model_directory_path={root}/external/RFdiffusion/models']
+    inputs: ['external/RFdiffusion/scripts/run_inference.py', 'external/RFdiffusion/models/Base_ckpt.pt']
+    outputs: ['design_0.pdb', 'design_0.trb']

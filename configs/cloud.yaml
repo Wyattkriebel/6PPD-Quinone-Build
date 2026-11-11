@@ -1,0 +1,7 @@
+# Informational profile; no cloud API, credentials, or paid provisioning implemented.
+cloud_spend_cap_usd: 0
+recommended_gpu_vram_gb: 24
+validate_model_architecture_support: true
+cpu_threads: 4
+use_same_experiment_config: true
+cost_estimation: 'Measure pilot walltime; estimated cost = hourly rate * walltime_hours * planned_jobs'

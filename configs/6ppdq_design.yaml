@@ -1,0 +1,16 @@
+# Deliberately blocked until Phase I evidence is independently reviewed.
+# Backbone generation is not enabled in this initial implementation.
+schema_version: 1
+purpose: phase2
+seed: 42
+phase1_gate: reports/phase1_gate.json
+resources:
+  cpu_threads: 2
+  minimum_free_disk_gb: 10
+  timeout_seconds: 600
+  cloud_spend_cap_usd: 0
+stages:
+  - id: prepare_ligand
+    argv: ['{python}', '{root}/scripts/ligand_preparation/prepare.py', '--input', '{root}/data/ligands/6ppdq_identity.json', '--output-dir', '{output_dir}', '--gate', '{root}/reports/phase1_gate.json']
+    inputs: ['scripts/ligand_preparation/prepare.py', 'data/ligands/6ppdq_identity.json', 'reports/phase1_gate.json']
+    outputs: ['6ppdq_R_neutral/metadata.json', '6ppdq_R_neutral/conformers.sdf', '6ppdq_S_neutral/metadata.json', '6ppdq_S_neutral/conformers.sdf']

@@ -1,0 +1,54 @@
+{
+  "retrieved_utc": "2026-11-10T03:39:41.313312+00:00",
+  "repositories": {
+    "foundry": {
+      "commit": "0d0b0ba44fab7ca76aa4b625c014ce5964c7d284",
+      "url": "https://github.com/RosettaCommons/foundry.git"
+    },
+    "RFdiffusion": {
+      "commit": "86507b6538f51fce57b5a72477165f03999ed7ae",
+      "url": "https://github.com/RosettaCommons/RFdiffusion.git"
+    },
+    "LigandMPNN": {
+      "commit": "26ec57ac976ade5379920dbd43c7f97a91cf82de",
+      "url": "https://github.com/dauparas/LigandMPNN.git"
+    }
+  },
+  "files": [
+    {
+      "source": "foundry/models/rfd3/docs/input_pdbs/IAI.pdb",
+      "path": "data/reference/IAI.pdb",
+      "sha256": "7b9ac256d92f19ad6d5306b1a8c6c06668abf89db402f66f637a009ad0106280"
+    },
+    {
+      "source": "foundry/models/rfd3/docs/examples/sm_binder_design.json",
+      "path": "configs/reference_examples/sm_binder_design.original.json",
+      "sha256": "6738334feb06b0e7c39e20194594594c621ea31e34e76f1ce9be3951b3001761"
+    },
+    {
+      "source": "foundry/models/rfd3/docs/examples/sm_binder_design.md",
+      "path": "configs/reference_examples/sm_binder_design.original.md",
+      "sha256": "d6008744f3acdc293060526f52f122a30eddd780e8ce6a9d867642e523483bd9"
+    },
+    {
+      "source": "foundry/LICENSE.md",
+      "path": "configs/reference_examples/FOUNDRY_LICENSE.md",
+      "sha256": "2cd97cd8d0096cc2f815825c731865d8e0bd0f265020fe9c54a8615ac0ae22eb"
+    },
+    {
+      "source": "RFdiffusion/LICENSE",
+      "path": "configs/reference_examples/RFDIFFUSION_LICENSE",
+      "sha256": "eefc2ae77cb92b1414a6ac76b246642fae2189747b1b07747e92e5ddc696ec24"
+    },
+    {
+      "source": "LigandMPNN/LICENSE",
+      "path": "configs/reference_examples/LIGANDMPNN_LICENSE",
+      "sha256": "8af7ba31868e08e8949e20ce2ef3c0b1d0ef78c9358c91563a60a9fe3b36c9ea"
+    },
+    {
+      "source": "RFdiffusion/env/SE3nv.yml",
+      "path": "configs/reference_examples/SE3nv.original.yml",
+      "sha256": "34aff0710a22e54ffd152e286f80dbd4cd11c6ee9fdf94422c152895b29d579e"
+    }
+  ]
+}

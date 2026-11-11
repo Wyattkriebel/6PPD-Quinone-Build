@@ -1,0 +1,27 @@
+schema_version: 1
+purpose: reproduction
+seed: 42
+resources:
+  cpu_threads: 2
+  minimum_free_disk_gb: 10
+  timeout_seconds: 7200
+  cloud_spend_cap_usd: 0
+stages:
+- id: iai_rfd3
+  argv:
+  - '{root}/external/envs/rfd3/bin/rfd3'
+  - design
+  - inputs={root}/configs/reference_examples/iai_buried.json
+  - out_dir={output_dir}
+  - ckpt_path={root}/external/checkpoints/rfd3_latest.ckpt
+  - n_batches=1
+  - diffusion_batch_size=1
+  - seed={seed}
+  - inference_mode=legacy
+  inputs:
+  - configs/reference_examples/iai_buried.json
+  - external/checkpoints/rfd3_latest.ckpt
+  - data/reference/IAI.pdb
+  outputs:
+  - '*.cif.gz'
+  - '*.json'
